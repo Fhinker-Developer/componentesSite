@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <style>
+        canvas {
+
+            width: 400px;
+            height: 400px;
+            
+                }
+    </style>
+
+
+    <script src="components/src/node_modules/chart.js/dist/chart.umd.js"></script>
+
+
+
+
+    <title>Document</title>
+
+
+
+
+</head>
+
+<body>
+
+    <canvas></canvas>
+
+    <script>
+        const ctx = document.querySelector('canvas');
+
+        var data = new Date()
+
+        let meses = 'janeiro, fevereiro, março, maio, junho, julho, agosto, setembro, outubro, novembro, Dezembro'
+
+
+        meses = meses.split(",")
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: meses,
+                datasets: [{
+                    label: 'exemplo',
+                    data: [4,6,7,8,2,0,4],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

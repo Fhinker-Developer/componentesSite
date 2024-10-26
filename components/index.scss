@@ -1,0 +1,291 @@
+@import "./colorsS.scss";
+
+//npx sass -w ./index.scss:./tabela.css -s compressed
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+
+
+
+    background-color: $color-white;
+
+}
+
+
+.content-table {
+
+
+    padding: 8px;
+    margin: 48px;
+    width: 40rem;
+
+    min-height: 40rem;
+    border-radius: 1em;
+    font-family: sans-serif;
+    box-shadow: 0 1px 14px $color-grey-400;
+
+    h1 {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        color: $color-grey-200;
+        box-sizing: border-box;
+        background-color: $color-grey-900;
+    }
+
+    h2 {
+
+        box-sizing: border-box;
+        font-size: 16px;
+        color: $color-grey-800;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        background-color: $color-grey-400;
+    }
+
+    h3 {
+        font-size: 16px;
+        color: $color-grey-900;
+    }
+
+    textarea {
+        box-sizing: border-box;
+        color: $color-grey-800;
+        resize: none;
+        font-size: 14px;
+        height: 96px;
+        width: 100%;
+        padding: 8px;
+
+    }
+
+    table {
+
+
+
+        height: 90%;
+        border-collapse: collapse;
+
+    }
+
+
+    thead {
+        font-size: 18px;
+        font-family: sans-serif;
+        background-color: $color-grey-900;
+        color: $color-white;
+
+    }
+
+    tbody {
+        font-size: 16px;
+        background-color: $color-white;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+    }
+
+    td {
+        padding: 8px;
+        border-radius: 1em;
+
+        ul {
+
+            display: flex;
+            flex-direction: column;
+
+        }
+    }
+
+
+    .aceite {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 16px;
+
+
+
+        li {
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+
+
+
+        }
+    }
+
+
+}
+
+.menu-os {
+    border-right: 16px solid $color-grey-800 ;
+
+    transition: 0.4s linear;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 308px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+
+
+    background: $color-grey-900;
+
+
+    .layout-config {
+        position: relative;
+
+        width: 85%;
+    
+
+
+        ul,
+        li {
+            display: flex;
+            align-items: center;
+
+
+        }
+
+
+
+        img {
+
+            padding: 8px;
+            border-radius: 4px;
+            background-color: $color-grey-800;
+            border: 1px solid $color-grey-800;
+
+            &:hover {
+
+
+                border-color: $color-green-200;
+                color: $color-green-200;
+            }
+        }
+
+    }
+
+    nav {
+        position: relative;
+        display: flex;
+        box-sizing: border-box;
+        flex-direction: column;
+
+        padding: 8px;
+        width: 90%;
+        height: 90%;
+
+        gap: 16px;
+
+
+        a {
+            position: relative;
+            transition: 0.4s linear;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-family: sans-serif;
+            box-sizing: border-box;
+            color: $color-grey-200;
+
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 0.4em;
+            background-color: $color-grey-800;
+            border: 1px solid $color-grey-800;
+
+            &:hover {
+                left: 1em;
+
+                border-color: $color-green-200;
+                color: $color-green-200;
+            }
+        }
+
+    }
+}
+
+.menu-os-close {
+
+
+    width: 48px;
+    border-right: 16px solid $color-grey-800 ;
+
+
+    .layout-config {
+
+
+
+
+
+        img {
+
+            padding: 8px;
+            border-radius: 4px;
+            background-color: $color-grey-800;
+            border: 1px solid $color-grey-800;
+
+            &:hover {
+
+
+                border-color: $color-green-200;
+                color: $color-green-200;
+            }
+        }
+
+    }
+
+    nav {
+
+        overflow: hidden;
+       
+a{
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    background-color: transparent;
+    border: none;
+
+    img{
+        &:hover{
+            
+            border-radius: 100%;
+            background:$color-green-400;
+        }
+     
+    }
+}
+
+
+
+
+    }
+
+}
