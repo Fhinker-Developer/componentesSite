@@ -1,41 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
+  <link rel="stylesheet" href="components/sidebar.css" />
 
-<body>
+  <body>
+    <header class="header-menu">
+      <!-- ////////// -->
+      <div class="btn-minify">
+        <img src="components/src/img/Menu.svg" id="btn-expand" />
+      </div>
+      <!-- btn minify and expand menu -->
 
-    <link rel="stylesheet" href="components/index.css">
-
-    <aside class="menu-os">
-
-        <div class="layout-config">
-            <ul>
-                <li><img src="components/src/img/Menu.svg" class="btn-menu-os"></li>
-            </ul>
-        </div>
-
+      <aside class="side-bar">
         <nav>
-            <a href="#"> <img src="components/src/img/Folder.svg" alt=""> Nova OS</a>
-            <a href="#"><img src="components/src/img/Opened Folder.svg" alt="">OS Recentes</a>
-            <a href="#"><img src="components/src/img/Settings.svg" alt="">OS em execucao</a>
-            <a href="#"><img src="components/src/img/Document.svg" alt="">OS finalizadas</a>
-            <a href="#"><img src="components/src/img/Unavailable.svg" alt="">OS canceladas</a>
+          <a href="#1">
+            <img src="components/src/img/Folder.svg" alt="" />
+            <p>nova os</p>
+          </a>
+          <!-- link page -->
+
+          <a href="#2"
+            ><img src="components/src/img/Opened Folder.svg" alt="" />
+
+            <p>OS Recentes</p>
+          </a>
+          <!-- link page -->
+
+          <a href="#3"
+            ><img src="components/src/img/Settings.svg" alt="" />
+            <p>OS em execucao</p>
+          </a>
+          <!-- link page -->
+
+          <a href="#4"
+            ><img src="components/src/img/Document.svg" alt="" />
+            <p>OS finalizadas</p>
+          </a>
+          <!-- link page -->
+
+          <a href="#5"
+            ><img src="components/src/img/Unavailable.svg" alt="" />
+            <p>OS canceladas</p>
+          </a>
+
+          <!-- submenu -->
+          <details>
+
+            <summary>
+              <img src="components/src/img/Unavailable.svg" alt="" />
+              <p>submenu</p>
+            </summary>
+
+            <div class="submenu">
+              <!-- init submenu item -->
+              <button class="item">option</button>
+              <!-- end item -->
+              <button class="item">option</button>
+              <!-- end item -->
+              <button class="item">option</button>
+              <!-- end item -->
+              <button class="item">option</button>
+              <!-- end item -->
+
+              <details class="item-menu">
+                <summary>
+                  <!-- <img src="components/src/img/Unavailable.svg" alt="" /> -->
+                  <p>submenu</p>
+                </summary>
+    
+                <div class="submenu">
+                  
+              <details class="item-menu">
+                <summary>
+                  <!-- <img src="components/src/img/Unavailable.svg" alt="" /> -->
+                  <p>submenu</p>
+                </summary>
+    
+                <div class="submenu">
+                  <!-- init submenu item -->
+                  <button class="item">option</button>
+                  <!-- end item -->
+                  <button class="item">option</button>
+                  <!-- end item -->
+                  <button class="item">option</button>
+                  <!-- end item -->
+                  <button class="item">option</button>
+                  <!-- end item -->
+                   
+                </div>
+
+
+                
+                <!-- dubmenu end -->
+              </details>
+                  <!-- init submenu item -->
+                  <button class="item">option</button>
+                  <!-- end item -->
+                  <button class="item">option</button>
+                  <!-- end item -->
+            
+                   
+                </div>
+
+
+                
+                <!-- dubmenu end -->
+              </details>
+            </div>
+            <!-- dubmenu end -->
+          </details>
+
+          <!-- link page -->
+
+          <a href="">terminar sessao</a>
         </nav>
+        <!-- navagation sections  -->
+      </aside>
+      <!-- aside end -->
+    </header>
+    <!-- header -->
 
-        <script src="components/src/index.js"></script>
-    </aside>
+    <main>
+      <div class="header">
+        <!-- here empty -->
+      </div>
 
+      <section id="1">
+        <h1>nova os</h1>
+        <!-- code here section -->
+      </section>
 
-   
+      <section id="2">
+        <h1>os Recentes</h1>
+        <!-- code here section -->
+      </section>
 
+      <section id="3">
+        <h1>os em execucao</h1>
+        <!-- code here section -->
+      </section>
 
+      <section id="4">
+        <h1>os finalizadas</h1>
+        <!-- code here section -->
+      </section>
 
+      <section id="5">
+        <h1>os canceladas</h1>
+        <!-- code here section -->
+      </section>
+    </main>
 
-</body>
+    <script>
+      // alert("ola mundo")
+      const ALL_BUTTON_NAVEGATION = document.querySelectorAll(".side-bar a");
+      const all_sections = document.querySelectorAll("main section");
+      const MENU = document.querySelector(".header-menu");
+      const BUTTON_MINIFY = document.getElementById("btn-expand");
+      const WINDOWS_SECTIONS = document.querySelectorAll("main section");
 
+      /* ready */
+
+      function ready() {
+        WINDOWS_SECTIONS[0].style.zIndex = 100;
+        ALL_BUTTON_NAVEGATION[0].classList.add("btn-active");
+      }
+
+      ready(); //obrigatorio ser executado no inicio
+
+      BUTTON_MINIFY.addEventListener("click", () => {
+        MENU.classList.toggle("minify-menu");
+      });
+
+      all_sections.forEach(function (window, index) {});
+
+      ALL_BUTTON_NAVEGATION.forEach(function (element, index) {
+        element.addEventListener("click", function () {
+          // alert(element.textContent)
+
+          element.classList.add("btn-active");
+          // element.textContent="bvvvv"
+
+          WINDOWS_SECTIONS[index].style.zIndex = "10";
+          // alert(ALL_BUTTON_NAVEGATION.length);
+
+          for (n = 0; n < ALL_BUTTON_NAVEGATION.length; n++) {
+            if (n != index) {
+              WINDOWS_SECTIONS[n].style.zIndex = "0";
+              ALL_BUTTON_NAVEGATION[n].classList.remove("btn-active");
+            }
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

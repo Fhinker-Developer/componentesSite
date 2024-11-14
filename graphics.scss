@@ -1,0 +1,102 @@
+//npx sass -w ./graphics.scss:./graphics.css -s compressed
+@import "./components/colorsS.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+%center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+%shadow-100 {
+    box-shadow: 0 0 10px $color-gray-300;
+}
+@mixin quadForm($size: 100px) {
+    width: $size;
+    height: $size;
+}
+body {
+    @extend %center;
+    height: 100vh;
+    width: 100%;
+    background-color: $color-gray-100;
+}
+.container {
+    @extend %center;
+    flex-direction: column;
+
+    width: 80%;
+    height: 90%;
+    border-radius: 1em;
+    
+    .container-box-resume {
+        @extend %center;
+        gap: 22px;
+        width: 90%;
+        // background: red
+        background-color: $color-white;
+    }
+    
+    .box-resume {
+        @extend %center;
+        @extend %shadow-100;
+        @include quadForm(180px);
+        border-radius: 8px;
+        // border: 1px solid $color-gray-200;
+
+        flex-direction: column;
+        background-color: $color-white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        h1 {
+            font-weight: lighter;
+            text-transform: capitalize;
+            color: $color-gray-800;
+            font-size: 32px;
+        }
+        h2 {
+            font-weight: lighter;
+            margin-bottom: 16px;
+            font-size: 18px;
+            text-transform: lowercase;
+            color: $color-gray-400;
+        }
+
+        output {
+            background-color: $color-green-50;
+            color: $color-green-600;
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 14px;
+        }
+        .down-percetage {
+            background-color: $color-red-50;
+            color: $color-red-600;
+        }
+        // width: 300px;
+        // height: 300px;
+    }
+
+    .container-chart {
+        @extend %center;
+        @extend %shadow-100;
+
+        width: 90%;
+        margin: 64px;
+        padding: 16px;
+        border-radius: 1em;
+        background-color: $color-white;
+        // background: green;
+        canvas {
+            width: 100%;
+            height: 90%;
+            // background-color: red;
+        }
+    }
+}

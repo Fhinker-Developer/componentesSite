@@ -1,67 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="graphics.css" />
 
-
-    <style>
-        canvas {
-
-            width: 400px;
-            height: 400px;
-            
-                }
-    </style>
-
-
-    <script src="components/src/node_modules/chart.js/dist/chart.umd.js"></script>
-
-
-
+    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
 
     <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container">
 
 
+      <div class="container-header">
+        <button></button>
+      </div>
+      <!-- lista de caixas de resumos -->
+      <div class="container-box-resume">
+        <div class="box-resume">
+          <h1>1000M</h1>
+          <h2>solicited</h2>
+          <output> 10 </output>
+        </div>
+        <!-- element box-resume -->
+        <div class="box-resume">
+          <h1>1000M</h1>
+          <h2>solicited</h2>
+          <output> 0</output>
+        </div>
+        <!-- element box-resume -->
+        <div class="box-resume">
+          <h1>1000M</h1>
+          <h2>solicited</h2>
+          <output> 40</output>
+        </div>
+        <!-- element box-resume -->
+        <div class="box-resume">
+          <h1>1000M</h1>
+          <h2>solicited</h2>
+          <output> 04</output>
+        </div>
+        <!-- element box-resume -->
+      </div>
+      <!-- end -->
 
+      <div class="container-chart">
+        <canvas></canvas>
+      </div>
 
-</head>
-
-<body>
-
-    <canvas></canvas>
+      <!-- <canvas></canvas> -->
+    </div>
 
     <script>
-        const ctx = document.querySelector('canvas');
+      function createChart() {
+        const ctx = document.querySelector("canvas");
 
-        var data = new Date()
+        var data = new Date();
+        const tile_chart = "Pedidos";
+        let dados = [4, 6, 7, 8, 2, 0, 4];
+        var types_chart = ["bar", "line", "radar", "polarArea", "scatter"];
+        let meses =
+          "janeiro, fevereiro, março, maio, junho, julho, agosto, setembro, outubro, novembro, Dezembro";
 
-        let meses = 'janeiro, fevereiro, março, maio, junho, julho, agosto, setembro, outubro, novembro, Dezembro'
-
-
-        meses = meses.split(",")
+        meses = meses.split(",");
 
         new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: meses,
-                datasets: [{
-                    label: 'exemplo',
-                    data: [4,6,7,8,2,0,4],
-                    borderWidth: 1
-                }]
+          type: types_chart[0],
+          data: {
+            labels: meses,
+            datasets: [
+              {
+                label: tile_chart,
+                data: dados,
+                borderWidth: 1,
+                borderRadius: 8,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
+          },
         });
+        // ctx.style.width="900px"
+      }
 
+      //end create chart
+      createChart();
+      formatedPercetage();
+
+      function formatedPercetage() {
+        const box_resume_percetage =
+          document.querySelectorAll(".box-resume output");
+
+        box_resume_percetage.forEach((Element, index) => {
+          var value = parseFloat(Element.textContent).toFixed(4);
+          //   alert(value);
+
+          if (value >= 10) {
+            Element.textContent = "+ " + String(value) + "%";
+          } else {
+            Element.textContent = "- " + String(value) + "%";
+            Element.classList.add("down-percetage");
+          }
+        });
+      }
     </script>
-</body>
-
+  </body>
 </html>
